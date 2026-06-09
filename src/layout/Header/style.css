@@ -1,0 +1,32 @@
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: var(--background-header);
+    border-bottom: 2px solid var(--border-elements);
+    color: var(--color-text-header);
+}
+
+header .search-container{
+    display: flex;
+    gap: 10px;
+}
+header .search-container input{
+    border-radius: 10px;
+    border: none;
+    border: 2px solid var(--border-elements);
+    padding: 10px;
+}
+header .search-container button{
+    padding: 5px 20px;
+    border-radius: 10px;
+    color: var(--color-btn-primary);
+    background-color: var(--background-btn-primary);
+    border: none;
+    transition: 0.7s all ease-in-out;
+}
+header .search-container button:hover{
+    opacity: 0.4;
+}
+

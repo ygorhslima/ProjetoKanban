@@ -1,0 +1,41 @@
+:root{
+    --background-header: #242426;
+    --color-text-header: #fff;
+    --background-btn-primary: rgb(103, 157, 239);
+    --color-btn-primary: #363E59;
+    --border-elements:#444447;
+    --fonte-titulos: "Poppins", sans-serif;
+    --fonte-texto:  "Inter", sans-serif;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+/* 1. Onde usar a Poppins (Títulos e Destaques visuais) */
+h1, h2, h3, h4, h5, h6, 
+header, 
+footer, 
+button, 
+.font-title {
+  font-family: var(--fonte-titulos);
+}
+
+/* 2. Onde usar a Inter (Textos, Leitura e Dados) */
+body, 
+p, 
+span,
+a,
+li,
+input, 
+textarea, 
+select, 
+table,
+.font-body {
+  font-family: var(--fonte-textos);
+}
+
+button{
+    cursor: pointer;
+}
