@@ -1,9 +1,31 @@
 .quadro-kanban-container {
-    display: flex;
-    gap: 16px;
-    padding: 20px;
-    overflow-x: auto;
-    height: 100vh;
-    align-items: flex-start;
-    box-sizing: border-box;
+  display: flex;
+  gap: 16px;
+  padding: 20px;
+  overflow-x: auto;
+  max-height: 100vh;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+/* Largura da barra de rolagem horizontal */
+.quadro-kanban-container::-webkit-scrollbar {
+  height: 10px;
+}
+
+/* Fundo da barra de rolagem */
+.quadro-kanban-container::-webkit-scrollbar-track {
+  background: #f1f1f14d;
+  border-radius: 4px;
+}
+
+/* O "cursor" ou "bolinha" que o usuário arrasta */
+.quadro-kanban-container::-webkit-scrollbar-thumb {
+  background: #160000;
+  border-radius: 4px;
+}
+
+/* Cor do cursor ao passar o mouse */
+.quadro-kanban-container::-webkit-scrollbar-thumb:hover {
+    background: #190707;
 }

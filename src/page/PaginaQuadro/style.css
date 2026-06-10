@@ -23,3 +23,18 @@
     color: white;
     font-size: 20px;
 }
+
+.form-column{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #24241B;
+    padding: 10px;
+    border-radius: 20px;
+}
+.form-column div{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;;
+}
