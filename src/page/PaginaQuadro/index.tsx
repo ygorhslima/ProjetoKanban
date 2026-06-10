@@ -1,5 +1,10 @@
-import { useParams } from "react-router-dom";
 import "./style.css";
+
+import { useParams } from "react-router-dom";
+import QuadroKanban from "../../layout/QuadroKanban";
+import ColunaKanban from "../../layout/ColunaKanban";
+import CardKanban from "../../layout/CardKanban";
+
 export default function PaginaQuadro() {
   const { id } = useParams();
   return (
@@ -10,7 +15,31 @@ export default function PaginaQuadro() {
           <i className="fa-solid fa-paint-roller"></i>
         </button>
       </div>
-      
+      <QuadroKanban>
+        <ColunaKanban>
+          <CardKanban/>
+        </ColunaKanban>
+
+        <ColunaKanban>
+          <CardKanban/>
+        </ColunaKanban>
+
+        <ColunaKanban>
+          <CardKanban/>
+        </ColunaKanban>
+
+        <ColunaKanban>
+          <CardKanban/>
+        </ColunaKanban>
+
+        <ColunaKanban>
+          <CardKanban/>
+        </ColunaKanban>
+
+        <ColunaKanban>
+          <CardKanban/>
+        </ColunaKanban>
+      </QuadroKanban>
     </div>
   );
 }

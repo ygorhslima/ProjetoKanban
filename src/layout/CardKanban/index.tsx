@@ -1,6 +1,6 @@
 export default function CardKanban(){
     return(
-        <div>
+        <div className="container-card">
             
         </div>
     )

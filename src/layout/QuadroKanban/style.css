@@ -1,0 +1,9 @@
+.quadro-kanban-container {
+    display: flex;
+    gap: 16px;
+    padding: 20px;
+    overflow-x: auto;
+    height: 100vh;
+    align-items: flex-start;
+    box-sizing: border-box;
+}
