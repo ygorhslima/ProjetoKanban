@@ -1,0 +1,25 @@
+.pagina-quadro-container{
+    background: url('../../assets/wallpaper-04.jpg');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+    object-fit: cover;
+    height: 100vh;
+}
+
+.header-pagina-quadro{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.627);
+    color: white;
+}
+.header-pagina-quadro button{
+    background: none;
+    border: none;
+    border-radius: 20px;
+}
+.header-pagina-quadro i{
+    color: white;
+    font-size: 20px;
+}

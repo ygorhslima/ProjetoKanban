@@ -1,0 +1,129 @@
+:root {
+  --background-home: #29292b;
+  --card-home: #242426;
+  --text-primary: #ffffff;
+  --text-secondary: #5e6c84;
+  --primary-color: #0065ff;
+  --primary-hover: #0747a6;
+}
+
+main.home-container {
+  background-color: var(--background-home);
+  min-height: 100vh;
+  padding: 30px;
+}
+
+/* Formulário de Criação */
+.form-criar-quadro {
+  background: var(--card-home);
+  padding: 20px;
+  border-radius: 8px;
+  max-width: 400px;
+  margin-bottom: 40px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+
+.form-criar-quadro h2 {
+  font-size: 1.2rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.form-criar-quadro form {
+  display: flex;
+  gap: 10px;
+}
+
+.form-criar-quadro input {
+  flex: 1;
+  padding: 8px 10px;
+  border: 2px solid #dfe1e6;
+  border-radius: 4px;
+  font-size: 14px;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.form-criar-quadro input:focus {
+  border-color: var(--primary-color);
+}
+
+.form-criar-quadro button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.form-criar-quadro button:hover {
+  background-color: var(--primary-hover);
+  transform: scale(1.1);
+}
+
+/* Seção dos Cards */
+.section-area-trabalho h1 {
+  font-size: 1.5rem;
+  color: var(--text-primary);
+  margin-bottom: 20px;
+}
+
+.container-card-area-trabalho {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 16px;
+}
+
+/* O Card Estilo Trello */
+.card-area-trabalho {
+  background-color: var(--card-home);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+  transition:
+    transform 0.2s,
+    box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.card-area-trabalho:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(173, 172, 172, 0.12);
+}
+
+.card-link {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+/* Banner superior do card */
+.card-banner {
+  width: 100%;
+  height: 100px;
+  overflow: hidden;
+  background-color: #ddd;
+}
+
+.card-banner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Texto do card */
+.card-conteudo {
+  padding: 12px;
+}
+
+.card-conteudo h3 {
+  margin: 0;
+  font-size: 16px;
+  color: var(--text-primary);
+  font-weight: 600;
+  line-height: 1.4;
+}

@@ -2,7 +2,7 @@ header{
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 20px;
+    padding: 3px;
     background-color: var(--background-header);
     border-bottom: 2px solid var(--border-elements);
     color: var(--color-text-header);
@@ -29,4 +29,3 @@ header .search-container button{
 header .search-container button:hover{
     opacity: 0.4;
 }
-
