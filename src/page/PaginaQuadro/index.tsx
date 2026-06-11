@@ -7,6 +7,25 @@ import ColunaKanban from "../../layout/ColunaKanban";
 import QuadroKanban from "../../layout/QuadroKanban";
 import useColumns, { ColumnProvider } from "../../hooks/useColumns";
 
+import Wallpaper1 from "../../assets/wallpaper-01.jpg";
+import Wallpaper2 from "../../assets/wallpaper-02.jpg";
+import Wallpaper3 from "../../assets/wallpaper-03.jpg";
+import Wallpaper4 from "../../assets/wallpaper-04.jpg";
+
+const listaMudarFundo = [
+  {
+    img: Wallpaper1,
+  },
+  {
+    img: Wallpaper2,
+  },
+  {
+    img: Wallpaper3,
+  },
+  {
+    img: Wallpaper4,
+  },
+];
 
 export default function PaginaQuadro() {
   const { id } = useParams();
@@ -26,19 +45,54 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
   const [showForm, setShowForm] = useState(false);
   const [tituloColuna, setTituloColuna] = useState("");
 
+  const [showFormMudarFundo, setShowFormMudarFundo] = useState(false);
+  const [background, setBackground] = useState(Wallpaper1);
+
   const handleCreateColumn = () => {
     if (!tituloColuna.trim()) return;
     adicionarColuna(tituloColuna);
     setTituloColuna("");
     setShowForm(false);
   };
+
+  const handleMudarFundo = (novaImagem: string) => {
+    setBackground(novaImagem);
+    setShowFormMudarFundo(false);
+  };
   return (
-    <div className="pagina-quadro-container">
+    <div
+      style={{
+        backgroundImage: `url(${background})`,
+        backgroundRepeat: "no-repeat",
+        backgroundPosition: "center center",
+        backgroundSize: "cover",
+        objectFit: "cover",
+        height: "100vh",
+      }}
+    >
       <div className="header-pagina-quadro">
         <h1>{id}</h1>
-        <button>
-          <i className="fa-solid fa-paint-roller"></i>
-        </button>
+        {showFormMudarFundo ? (
+          <div className="wallpapers-list-container">
+            <div className="items">
+              {listaMudarFundo.map((el, index) => {
+                return (
+                  <button key={index} onClick={() => handleMudarFundo(el.img)}>
+                    <img src={el.img} className="imgs" />
+                  </button>
+                );
+              })}
+            </div>
+            <button onClick={() => setShowFormMudarFundo(false)}>Sair</button>
+          </div>
+        ) : (
+          <button onClick={() => setShowFormMudarFundo(true)}>
+            <i
+              className="fa-solid fa-paint-roller"
+              onClick={handleMudarFundo}
+            ></i>
+          </button>
+        )}
       </div>
 
       <QuadroKanban>
