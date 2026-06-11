@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import "./style.css";
 import FormAddKanban from "./FormAddKanban";
 import useCards from "../../hooks/useCards";
@@ -26,16 +26,13 @@ export default function ColunaKanban({
 
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        padding: "12px",
-        borderRadius: "12px",
-        backgroundColor: `${corTema}`,
-        color: `${corFonte}`,
-        flex: "0 0 300px",
-        boxShadow: "0px 0px 10px black",
-      }}
+      className="coluna-kanban"
+      style={
+        {
+          "--cor-coluna": corTema,
+          "--cor-fonte": corFonte,
+        } as React.CSSProperties
+      }
     >
       <div className="header">
         <p>{titulo}</p>

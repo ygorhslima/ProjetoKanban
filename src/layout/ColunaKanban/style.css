@@ -1,3 +1,14 @@
+.coluna-kanban {
+  display: flex;
+  flex-direction: column;
+  padding: 12px;
+  border-radius: 12px;
+  flex: 0 0 300px;
+  box-shadow: 0px 0px 10px black;
+  background-color: var(--cor-coluna);
+  color: var(--cor-fonte);
+}
+
 button {
   background: none;
   border: none;

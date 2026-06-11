@@ -7,13 +7,17 @@ interface PropsCard {
   descricao?: string;
 }
 
-export default function CardKanban({ id, titulo, descricao }: PropsCard) {
+export default function CardKanban({
+  id,
+  titulo,
+  descricao,
+}: PropsCard) {
   const { removerCard } = useCards();
   return (
-    <div className="card-kanban-item">
+    <div className="card-kanban">
       <div className="card-header">
         <div>
-          <input type="checkbox" name="check" id={id}/>
+          <input type="checkbox" name="check" id={id} />
           <label htmlFor={id}>{titulo}</label>
         </div>
         <button onClick={() => removerCard(id)} className="btn-delete-card">

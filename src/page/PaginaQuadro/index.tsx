@@ -1,7 +1,7 @@
 import "./style.css";
 
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import React, { useState } from "react";
 import { CardsProvider } from "../../hooks/useCards";
 import ColunaKanban from "../../layout/ColunaKanban";
 import QuadroKanban from "../../layout/QuadroKanban";
@@ -47,13 +47,15 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
   return (
     <div
       style={{
+        "--cor-coluna": corEscolhida,
+        "--cor-fonte": corFonte,
         backgroundImage: `url(${background})`,
         backgroundRepeat: "no-repeat",
         backgroundPosition: "center center",
         backgroundSize: "cover",
         objectFit: "cover",
         height: "100vh",
-      }}
+      } as React.CSSProperties}
     >
       <div className="header-pagina-quadro">
         <h1>{id}</h1>
