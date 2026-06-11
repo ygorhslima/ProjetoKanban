@@ -17,11 +17,7 @@ const ColumnContext = createContext<ColumnContextData>({} as ColumnContextData);
 export function ColumnProvider({ children }: { children: React.ReactNode }) {
   const [columns, setColumns] = useState<Column[]>(() => {
     const dadosColuna = localStorage.getItem("kanban-columns");
-    if (dadosColuna) {
-      return JSON.parse(dadosColuna);
-    } else {
-      return [];
-    }
+    return dadosColuna ? JSON.parse(dadosColuna) : [];
   });
 
   useEffect(() => {
@@ -41,20 +37,17 @@ export function ColumnProvider({ children }: { children: React.ReactNode }) {
     setColumns((prev) => prev.filter((col) => col.id !== id));
   };
 
-  return(
-    <ColumnContext.Provider
-      value={{
-        columns,
-        adicionarColuna,
-        removerColuna,
-      }}
-    >
+  console.log(columns);
+
+  return (
+    <ColumnContext.Provider value={{ columns, adicionarColuna, removerColuna }}>
       {children}
     </ColumnContext.Provider>
-  )
+  );
+
 }
 
-export default function useColumns(quadroId?: string) {
+export default function useColumns(quadroId?: string | undefined) {
   const context = useContext(ColumnContext);
 
   if (!context) {
@@ -63,7 +56,9 @@ export default function useColumns(quadroId?: string) {
 
   return {
     // Retorna apenas as colunas do quadro atual
-    columns: quadroId ? context.columns.filter(c => c.quadroId === quadroId) : context.columns,
+    columns: quadroId
+      ? context.columns.filter((c) => c.quadroId === quadroId)
+      : context.columns,
     // Cria uma função que já sabe em qual quadro adicionar
     adicionarColuna: (titulo: string) => {
       if (quadroId) context.adicionarColuna(titulo, quadroId);

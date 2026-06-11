@@ -32,10 +32,20 @@ input,
 textarea, 
 select, 
 table,
+label,
 .font-body {
   font-family: var(--fonte-textos);
 }
 
 button{
     cursor: pointer;
+}
+
+.btn_criar{
+  background-color: green;
+  color: white;
+}
+.btn_cancelar{
+  background-color: red;
+  color: white;
 }

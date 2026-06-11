@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Wallpaper1 from "../assets/wallpaper-01.jpg";
 import Wallpaper2 from "../assets/wallpaper-02.jpg";
 import Wallpaper3 from "../assets/wallpaper-03.jpg";
@@ -10,7 +10,7 @@ import Wallpaper8 from "../assets/wallpaper-08.jpg";
 import Wallpaper9 from "../assets/wallpaper-09.jpg";
 import Wallpaper10 from "../assets/wallpaper-010.jpg";
 
-export default function useBackground() {
+export default function useBackground(quadroId: string | undefined) {
   const listaMudarFundo = [
     {
       img: Wallpaper1,
@@ -44,8 +44,21 @@ export default function useBackground() {
     }
   ];
   
+  const storageKey = quadroId ? `kanban-bg-${quadroId}` : null;
+
   const [showFormMudarFundo, setShowFormMudarFundo] = useState(false);
-  const [background, setBackground] = useState(Wallpaper1);
+
+  const [background, setBackground] = useState(() => {
+    if (!storageKey) return Wallpaper1;
+    const salvo = localStorage.getItem(storageKey);
+    return salvo ? salvo : Wallpaper1;
+  });
+
+  useEffect(() => {
+    if (storageKey) {
+      localStorage.setItem(storageKey, background);
+    }
+  }, [background, storageKey]);
 
   const handleMudarFundo = (novaImagem: string) => {
     setBackground(novaImagem);

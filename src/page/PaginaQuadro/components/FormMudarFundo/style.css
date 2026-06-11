@@ -1,13 +1,13 @@
 
 .modal-overlay {
-  position: fixed; /* Fixado na tela, não rola com a página */
+  position: fixed;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
   display: flex;
-  justify-content: center; /* Centraliza horizontalmente */
-  align-items: center;     /* Centraliza verticalmente */
+  justify-content: center;
+  align-items: center;
   z-index: 1000;
   padding: 20px;
 }
@@ -25,18 +25,30 @@
   flex-direction: column;
   overflow: hidden;
   gap: 20px;
+
+  animation: slideUp 0.3s ease-out forwards;
+}
+
+@keyframes slideUp {
+  from{
+    opacity: 0;
+    transform: translateY(20px) scale(0.95);
+  }
+  to{
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
 }
 
 .scroll-area {
-  flex-grow: 1; /* Ocupa todo o espaço disponível */
-  overflow-y: auto; /* A rolagem fica apenas aqui */
-  padding-right: 5px; /* Evita que o scroll encoste nas imagens */
+  flex-grow: 1;
+  overflow-y: auto;
+  padding-right: 5px;
 }
 
 .colors {
   display: flex;
   flex-direction: column;
-
 }
 
 .colors div {
@@ -47,7 +59,6 @@
   color: #ccc;
 }
 
-/* Estilização melhorada do input de cor */
 input[type="color"] {
   width: 30px;
   height: 30px;
@@ -65,7 +76,7 @@ input[type="color"] {
 
 .wallpapers-list-container button {
   background: none;
-  border: 2px solid transparent; /* Bordas para feedback visual */
+  border: 2px solid transparent;
   border-radius: 6px;
   padding: 0;
   cursor: pointer;
@@ -75,7 +86,7 @@ input[type="color"] {
 
 .wallpapers-list-container button:hover {
   transform: scale(1.05);
-  border-color: #3498db; /* Azul para indicar seleção */
+  border-color: #3498db;
 }
 
 .wallpapers-list-container .imgs {
@@ -95,7 +106,6 @@ input[type="color"] {
   font-weight: bold;
   transition: background 0.3s;
   margin: 0;
-
 }
 
 #btn_sair:hover {
