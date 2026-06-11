@@ -6,26 +6,8 @@ import { CardsProvider } from "../../hooks/useCards";
 import ColunaKanban from "../../layout/ColunaKanban";
 import QuadroKanban from "../../layout/QuadroKanban";
 import useColumns, { ColumnProvider } from "../../hooks/useColumns";
-
-import Wallpaper1 from "../../assets/wallpaper-01.jpg";
-import Wallpaper2 from "../../assets/wallpaper-02.jpg";
-import Wallpaper3 from "../../assets/wallpaper-03.jpg";
-import Wallpaper4 from "../../assets/wallpaper-04.jpg";
-
-const listaMudarFundo = [
-  {
-    img: Wallpaper1,
-  },
-  {
-    img: Wallpaper2,
-  },
-  {
-    img: Wallpaper3,
-  },
-  {
-    img: Wallpaper4,
-  },
-];
+import FormMudarFundo from "./components/FormMudarFundo";
+import useBackground from "../../hooks/useBackground";
 
 export default function PaginaQuadro() {
   const { id } = useParams();
@@ -42,11 +24,16 @@ export default function PaginaQuadro() {
 // Criamos um sub-componente para poder usar os hooks dentro dos Providers
 function PaginaQuadroContent({ id }: { id: string | undefined }) {
   const { columns, adicionarColuna } = useColumns(id);
+
+  const {
+    background,
+    handleMudarFundo,
+    showFormMudarFundo,
+    setShowFormMudarFundo,
+  } = useBackground();
+
   const [showForm, setShowForm] = useState(false);
   const [tituloColuna, setTituloColuna] = useState("");
-
-  const [showFormMudarFundo, setShowFormMudarFundo] = useState(false);
-  const [background, setBackground] = useState(Wallpaper1);
 
   const handleCreateColumn = () => {
     if (!tituloColuna.trim()) return;
@@ -55,10 +42,6 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
     setShowForm(false);
   };
 
-  const handleMudarFundo = (novaImagem: string) => {
-    setBackground(novaImagem);
-    setShowFormMudarFundo(false);
-  };
   return (
     <div
       style={{
@@ -73,24 +56,13 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
       <div className="header-pagina-quadro">
         <h1>{id}</h1>
         {showFormMudarFundo ? (
-          <div className="wallpapers-list-container">
-            <div className="items">
-              {listaMudarFundo.map((el, index) => {
-                return (
-                  <button key={index} onClick={() => handleMudarFundo(el.img)}>
-                    <img src={el.img} className="imgs" />
-                  </button>
-                );
-              })}
-            </div>
-            <button onClick={() => setShowFormMudarFundo(false)}>Sair</button>
-          </div>
+          <FormMudarFundo
+            onSelect={handleMudarFundo}
+            onCancel={() => setShowFormMudarFundo(false)}
+          />
         ) : (
           <button onClick={() => setShowFormMudarFundo(true)}>
-            <i
-              className="fa-solid fa-paint-roller"
-              onClick={handleMudarFundo}
-            ></i>
+            <i className="fa-solid fa-paint-roller"></i>
           </button>
         )}
       </div>
