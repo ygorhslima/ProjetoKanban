@@ -1,40 +1,56 @@
-.pagina-quadro-container{
-    background: url('../../assets/wallpaper-04.jpg');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: cover;
-    object-fit: cover;
-    height: 100vh;
+.pagina-quadro-container {
+  background: url("../../assets/wallpaper-04.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  object-fit: cover;
+  height: 100vh;
 }
 
-.header-pagina-quadro{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: rgba(0, 0, 0, 0.627);
-    color: white;
+.header-pagina-quadro {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.627);
+  color: white;
 }
-.header-pagina-quadro button{
-    background: none;
-    border: none;
-    border-radius: 20px;
+.header-pagina-quadro button {
+  background: none;
+  border: none;
+  border-radius: 20px;
 }
-.header-pagina-quadro i{
-    color: white;
-    font-size: 20px;
+.header-pagina-quadro i {
+  color: white;
+  font-size: 20px;
 }
 
-.form-column{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #24241B;
-    padding: 10px;
-    border-radius: 20px;
+.form-column {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #24241b;
+  padding: 10px;
+  border-radius: 20px;
+}
+.form-column div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.form-column input {
+  padding: 15px;
+  width: 100%;
+  border-radius: 10px;
+  border: none;
+  background-color: #2d2e2f6e;
+  color: white;
+  font-size: 15px;
+  font-family: var(--fonte-texto);
 }
 .form-column div{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
 }

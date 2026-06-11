@@ -1,11 +1,12 @@
 import "./style.css";
 
 import { useParams } from "react-router-dom";
-import QuadroKanban from "../../layout/QuadroKanban";
-import ColunaKanban from "../../layout/ColunaKanban";
 import { useState } from "react";
-import useColumns, { ColumnProvider } from "../../hooks/useColumns";
 import { CardsProvider } from "../../hooks/useCards";
+import ColunaKanban from "../../layout/ColunaKanban";
+import QuadroKanban from "../../layout/QuadroKanban";
+import useColumns, { ColumnProvider } from "../../hooks/useColumns";
+
 
 export default function PaginaQuadro() {
   const { id } = useParams();
@@ -31,7 +32,6 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
     setTituloColuna("");
     setShowForm(false);
   };
-
   return (
     <div className="pagina-quadro-container">
       <div className="header-pagina-quadro">
@@ -40,6 +40,7 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
           <i className="fa-solid fa-paint-roller"></i>
         </button>
       </div>
+
       <QuadroKanban>
         {columns.map((col) => (
           <ColunaKanban key={col.id} id={col.id} titulo={col.titulo} />
@@ -53,12 +54,16 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
               value={tituloColuna}
               onChange={(e) => setTituloColuna(e.target.value)}
             />
-            <button onClick={handleCreateColumn}>Criar Coluna</button>
-            <button onClick={() => setShowForm(false)}>Cancelar</button>
+            <div>
+              <button onClick={handleCreateColumn}>Criar Coluna</button>
+              <button onClick={() => setShowForm(false)}>Cancelar</button>
+            </div>
           </div>
         ) : (
           <div onClick={() => setShowForm(true)}>
-            <button> <i className='fa-solid fa-plus'></i> Criar Coluna</button>
+            <button>
+              <i className="fa-solid fa-plus"></i> Criar Coluna
+            </button>
           </div>
         )}
       </QuadroKanban>

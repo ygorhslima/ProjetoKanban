@@ -51,6 +51,7 @@ export function CardsProvider({ children }: { children: React.ReactNode }) {
     setCards((prev) => prev.filter((card) => card.id !== id));
   };
 
+
   return (
     <CardsContext.Provider
       value={{

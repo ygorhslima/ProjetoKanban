@@ -9,12 +9,16 @@ interface PropsCard {
 
 export default function CardKanban({ id, titulo, descricao }: PropsCard) {
   const { removerCard } = useCards();
-
   return (
     <div className="card-kanban-item">
       <div className="card-header">
-        <h3>{titulo}</h3>
-        <button onClick={() => removerCard(id)} className="btn-delete-card">×</button>
+        <div>
+          <input type="checkbox" name="check" id={id}/>
+          <label htmlFor={id}>{titulo}</label>
+        </div>
+        <button onClick={() => removerCard(id)} className="btn-delete-card">
+          <i className="fa-solid fa-close"></i>
+        </button>
       </div>
       {descricao && <p className="card-description">{descricao}</p>}
     </div>
