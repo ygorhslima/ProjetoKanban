@@ -2,22 +2,41 @@ import { useState } from "react";
 import "./style.css";
 import FormAddKanban from "./FormAddKanban";
 import useCards from "../../hooks/useCards";
-import CardKanban from "../CardKanban"; // Assumindo que você tenha esse componente
+import CardKanban from "../CardKanban";
 import useColumns from "../../hooks/useColumns";
 
 interface PropsColunaKanban {
   id: string;
   titulo: string;
+  corTema: string;
+  corFonte: string;
 }
 
-export default function ColunaKanban({ id, titulo }: PropsColunaKanban) {
+export default function ColunaKanban({
+  id,
+  titulo,
+  corTema,
+  corFonte,
+}: PropsColunaKanban) {
   const { getCardsPorColuna } = useCards();
-  const [showForm, setShowForm] = useState(false);
-  const cardsDaColuna = getCardsPorColuna(id);
   const { removerColuna } = useColumns(id);
 
+  const [showForm, setShowForm] = useState(false);
+  const cardsDaColuna = getCardsPorColuna(id);
+
   return (
-    <div className="coluna-kanban-container">
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        padding: "12px",
+        borderRadius: "12px",
+        backgroundColor: `${corTema}`,
+        color: `${corFonte}`,
+        flex: "0 0 300px",
+        boxShadow: "0px 0px 10px black",
+      }}
+    >
       <div className="header">
         <p>{titulo}</p>
         <div>
@@ -27,6 +46,7 @@ export default function ColunaKanban({ id, titulo }: PropsColunaKanban) {
           </button>
         </div>
       </div>
+
       <div className="cards-list">
         {cardsDaColuna.map((card) => (
           <CardKanban
@@ -37,6 +57,7 @@ export default function ColunaKanban({ id, titulo }: PropsColunaKanban) {
           />
         ))}
       </div>
+
       <div className="footer">
         {showForm ? (
           <FormAddKanban colunaId={id} onClose={() => setShowForm(false)} />

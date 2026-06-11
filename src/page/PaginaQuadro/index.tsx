@@ -8,6 +8,7 @@ import QuadroKanban from "../../layout/QuadroKanban";
 import useColumns, { ColumnProvider } from "../../hooks/useColumns";
 import FormMudarFundo from "./components/FormMudarFundo";
 import useBackground from "../../hooks/useBackground";
+import useColors from "../../hooks/useColors";
 
 export default function PaginaQuadro() {
   const { id } = useParams();
@@ -34,6 +35,7 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
 
   const [showForm, setShowForm] = useState(false);
   const [tituloColuna, setTituloColuna] = useState("");
+  const { corEscolhida, setCorEscolhida, corFonte, setCorFonte } = useColors();
 
   const handleCreateColumn = () => {
     if (!tituloColuna.trim()) return;
@@ -59,6 +61,10 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
           <FormMudarFundo
             onSelect={handleMudarFundo}
             onCancel={() => setShowFormMudarFundo(false)}
+            onColorChange={setCorEscolhida}
+            corAtual={corEscolhida}
+            corFonte={corFonte}
+            onColorFontChange={setCorFonte}
           />
         ) : (
           <button onClick={() => setShowFormMudarFundo(true)}>
@@ -69,7 +75,13 @@ function PaginaQuadroContent({ id }: { id: string | undefined }) {
 
       <QuadroKanban>
         {columns.map((col) => (
-          <ColunaKanban key={col.id} id={col.id} titulo={col.titulo} />
+          <ColunaKanban
+            key={col.id}
+            id={col.id}
+            titulo={col.titulo}
+            corTema={corEscolhida}
+            corFonte={corFonte}
+          />
         ))}
 
         {showForm ? (
