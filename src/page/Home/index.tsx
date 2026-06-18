@@ -14,15 +14,14 @@ export default function Home() {
 
     // Chama a função pronta do hook
     adicionarQuadro(novoQuadroNome);
-
     setNovoQuadroNome(""); // Limpa o input
   };
 
-  return (
+  return ( 
     <main className="home-container">
       <div className="form-criar-quadro">
         <h2>Criar novo quadro</h2>
-        <form onSubmit={() => handleCreateQuadro}>
+        <form onSubmit={handleCreateQuadro}>
           <input
             type="text"
             id="titulo"

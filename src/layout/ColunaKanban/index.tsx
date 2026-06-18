@@ -18,11 +18,22 @@ export default function ColunaKanban({
   corTema,
   corFonte,
 }: PropsColunaKanban) {
-  const { getCardsPorColuna } = useCards();
+  const { getCardsPorColuna, atualizarCard } = useCards();
   const { removerColuna } = useColumns(id);
 
   const [showForm, setShowForm] = useState(false);
   const cardsDaColuna = getCardsPorColuna(id);
+
+  const handleDragOver = (e: React.DragEvent) => {
+    e.preventDefault(); // Necessário para permitir a soltura (drop)
+  };
+
+  const handleDrop = (e: React.DragEvent) => {
+    const cardId = e.dataTransfer.getData("cardId");
+    if (cardId) {
+      atualizarCard(cardId, { colunaId: id });
+    }
+  };
 
   return (
     <div
@@ -33,12 +44,19 @@ export default function ColunaKanban({
           "--cor-fonte": corFonte,
         } as React.CSSProperties
       }
+      onDragOver={handleDragOver}
+      onDrop={handleDrop}
     >
       <div className="header">
         <p>{titulo}</p>
         <div>
           <span>{cardsDaColuna.length}</span>
-          <button onClick={() => removerColuna(id)}>
+          <button onClick={() => {
+              const isConfirmed = window.confirm("Você deseja apagar esta coluna?");
+              if(isConfirmed){
+                removerColuna(id)
+              }
+          }}>
             <i className="fa-solid fa-close"></i>
           </button>
         </div>

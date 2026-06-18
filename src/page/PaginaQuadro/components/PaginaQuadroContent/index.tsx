@@ -53,7 +53,7 @@ export default function PaginaQuadroContent({
       }
     >
       <div className="header-pagina-quadro">
-        <h1>{id}</h1>
+        <h1>{quadroAtual?.nome}</h1>
         {showFormMudarFundo ? (
           <FormMudarFundo
             onSelect={handleMudarFundo}
