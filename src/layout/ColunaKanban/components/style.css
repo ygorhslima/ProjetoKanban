@@ -1,0 +1,63 @@
+/* Container que deve envolver o form dentro do card */
+.form-edit-container {
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    box-sizing: border-box; /* Garante que o padding não estoure o tamanho */
+    background-color: inherit; /* Pega a mesma cor de fundo do seu card */
+    border-radius: 10px;
+}
+
+.form-add-kanban {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Ajusta os elementos para preencher o espaço */
+    height: 100%;
+    gap: 10px;
+}
+
+.form-add-kanban input, 
+.form-add-kanban textarea {
+    width: 100%;
+    padding: 10px;
+    border-radius: 10px;
+    border: none;
+    background-color: #2d2e2f6e;
+    color: white;
+    font-size: 14px;
+    font-family: var(--fonte-texto);
+    box-sizing: border-box; /* Essencial para respeitar o 100% de largura */
+    resize: none; /* Impede que o usuário redimensione o textarea quebrando o layout */
+}
+
+.form-add-kanban textarea {
+    flex-grow: 1; /* Faz o textarea preencher o espaço vazio do card */
+}
+
+.form-add-kanban .buttons-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.form-add-kanban .btn_add_card {
+    background-color: var(--background-btn-primary);
+    padding: 8px 15px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}
+
+.form-add-kanban .btn_close_card {
+    background-color: red;
+    padding: 8px 12px;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+}

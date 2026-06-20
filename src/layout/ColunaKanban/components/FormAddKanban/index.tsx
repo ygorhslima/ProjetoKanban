@@ -1,5 +1,5 @@
-import "./style.css";
-import useCards, { type Card } from "../../../hooks/useCards";
+import "../style.css";
+import useCards from "../../../../hooks/useCards";
 import { useState } from "react";
 
 export default function FormAddKanban({
@@ -13,7 +13,7 @@ export default function FormAddKanban({
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
 
-  const handleAdd = (e: React.FormEvent) => {
+  const handleAdd = (e: React.InputEvent) => {
     e.preventDefault();
     if (!titulo.trim()) return;
 
@@ -33,12 +33,12 @@ export default function FormAddKanban({
         }}
       />
 
-      <input
-        type="text"
+      <textarea
         placeholder="diga a descrição..."
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
-      />
+        rows={3} // Você pode ajustar o número de linhas visíveis
+      ></textarea>
 
       <div className="buttons-form">
         <button className="btn_add_card">Adicionar cartão</button>

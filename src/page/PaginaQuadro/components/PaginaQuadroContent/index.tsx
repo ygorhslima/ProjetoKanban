@@ -9,16 +9,12 @@ import FormMudarFundo from "../FormMudarFundo";
 import QuadroKanban from "../../../../layout/QuadroKanban";
 import ColunaKanban from "../../../../layout/ColunaKanban";
 
-export default function PaginaQuadroContent({
-  id,
-}: {
-  id: string | undefined;
-}) {
+export default function PaginaQuadroContent({id}: {id: string | undefined;}) {
   const { quadros } = usePages();
-  const quadroAtual = quadros.find((q) => q.id === id);
-
   const { columns, adicionarColuna } = useColumns(id);
-
+  
+  const quadroAtual = quadros.find((q) => q.id === id);
+  
   const {
     background,
     handleMudarFundo,

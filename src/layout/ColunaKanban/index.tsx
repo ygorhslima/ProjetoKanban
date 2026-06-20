@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import "./style.css";
-import FormAddKanban from "./FormAddKanban";
+import FormAddKanban from "./components/FormAddKanban";
 import useCards from "../../hooks/useCards";
 import CardKanban from "../CardKanban";
 import useColumns from "../../hooks/useColumns";
@@ -51,12 +51,16 @@ export default function ColunaKanban({
         <p>{titulo}</p>
         <div>
           <span>{cardsDaColuna.length}</span>
-          <button onClick={() => {
-              const isConfirmed = window.confirm("Você deseja apagar esta coluna?");
-              if(isConfirmed){
-                removerColuna(id)
+          <button
+            onClick={() => {
+              const isConfirmed = window.confirm(
+                "Você deseja apagar esta coluna?",
+              );
+              if (isConfirmed) {
+                removerColuna(id);
               }
-          }}>
+            }}
+          >
             <i className="fa-solid fa-close"></i>
           </button>
         </div>
