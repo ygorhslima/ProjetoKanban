@@ -8,6 +8,7 @@ interface FormMudarFundoProps {
   onColorFontChange: (fonte: string) => void;
   corAtual: string;
   corFonte: string;
+  id: string | undefined;
 }
 
 export default function FormMudarFundo({
@@ -17,8 +18,9 @@ export default function FormMudarFundo({
   onColorFontChange,
   corAtual,
   corFonte,
+  id,
 }: FormMudarFundoProps) {
-  const { listaMudarFundo } = useBackground();
+  const { listaMudarFundo } = useBackground(id);
 
   return (
     <div className="modal-overlay">

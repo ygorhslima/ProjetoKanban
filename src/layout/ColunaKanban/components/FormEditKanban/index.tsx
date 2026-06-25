@@ -1,6 +1,5 @@
 import "../style.css";
 import useCards from "../../../../hooks/useCards";
-import { useState } from "react";
 
 export default function FormEditKanban({
   onClose,

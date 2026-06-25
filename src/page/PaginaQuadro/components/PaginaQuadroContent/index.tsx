@@ -58,6 +58,7 @@ export default function PaginaQuadroContent({id}: {id: string | undefined;}) {
             corAtual={corEscolhida}
             corFonte={corFonte}
             onColorFontChange={setCorFonte}
+            id={id}
           />
         ) : (
           <button onClick={() => setShowFormMudarFundo(true)}>

@@ -13,7 +13,7 @@ export default function FormAddKanban({
   const [titulo, setTitulo] = useState("");
   const [descricao, setDescricao] = useState("");
 
-  const handleAdd = (e: React.InputEvent) => {
+  const handleAdd = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (!titulo.trim()) return;
 
@@ -37,7 +37,7 @@ export default function FormAddKanban({
         placeholder="diga a descrição..."
         value={descricao}
         onChange={(e) => setDescricao(e.target.value)}
-        rows={3} // Você pode ajustar o número de linhas visíveis
+        rows={3}
       ></textarea>
 
       <div className="buttons-form">

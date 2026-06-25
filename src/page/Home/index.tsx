@@ -8,7 +8,7 @@ export default function Home() {
   const { quadros, adicionarQuadro } = usePages();
   const [novoQuadroNome, setNovoQuadroNome] = useState("");
 
-  const handleCreateQuadro = (e: React.InputEvent) => {
+  const handleCreateQuadro = (e: React.FormEvent) => {
     e.preventDefault();
     if (!novoQuadroNome.trim()) return;
 
