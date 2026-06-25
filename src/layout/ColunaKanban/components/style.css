@@ -1,8 +1,5 @@
 /* Container que deve envolver o form dentro do card */
 .form-edit-container {
-    position: absolute;
-    top: 0;
-    left: 0;
     width: 100%;
     height: 100%;
     z-index: 10;
@@ -10,7 +7,7 @@
     flex-direction: column;
     padding: 10px;
     box-sizing: border-box;
-    /* Garante que o padding não estoure o tamanho */
+    background-color: inherit;
     background-color: rgba(0, 0, 0, 0.5);
     border-radius: 10px;
 }
