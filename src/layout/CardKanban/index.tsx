@@ -14,13 +14,18 @@ export default function CardKanban({ id, titulo, descricao }: PropsCard) {
   const [showForm, setShowForm] = useState(false);
   const [tituloEdit, setTituloEdit] = useState(titulo);
   const [descricaoEdit, setDescricaoEdit] = useState(descricao || "");
+  const [isMarked, setIsMarked] = useState(false);
 
   const handleDragStart = (e: React.DragEvent) => {
     e.dataTransfer.setData("cardId", id);
   };
 
   return (
-    <div className="card-kanban relative" draggable onDragStart={handleDragStart}>
+    <div
+      className="card-kanban relative"
+      draggable
+      onDragStart={handleDragStart}
+    >
       {showForm ? (
         <div className="form-edit-container">
           <FormEditKanban
@@ -36,14 +41,31 @@ export default function CardKanban({ id, titulo, descricao }: PropsCard) {
         <>
           <div className="card-header">
             <div>
-              <input type="checkbox" name="check" id={id} />
-              <label htmlFor={id}>{titulo}</label>
+              <input
+                type="checkbox"
+                name="check"
+                id={id}
+                checked={isMarked}
+                onChange={(e) => setIsMarked(e.target.checked)}
+              />
+              <label
+                htmlFor={id}
+                style={{
+                  textDecoration: isMarked ? "line-through" : "none",
+                  color: isMarked ? "gray" : "inherit",
+                }}
+              >
+                {titulo}
+              </label>
             </div>
 
             <div>
               {/*BOTÃO DE EDITAR*/}
               <button onClick={() => setShowForm(true)}>
-                <i className="fa-solid fa-pencil" style={{ color: "white" }}></i>
+                <i
+                  className="fa-solid fa-pencil"
+                  style={{ color: "white" }}
+                ></i>
               </button>
 
               <button
